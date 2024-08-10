@@ -6,7 +6,13 @@ SECRET_KEY = 'django-insecure-m&$lzdzkutvrbr5vt=jpm)7#g7cken_tk%($ty+w902n7wb#=e
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    # Когда проект будет опубликован и станет доступен для пользователей,
+    # в этот список нужно будет добавить и адреса домена, где он будет размещён,
+    # например 'acme.not' и 'www.acme.not'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -98,3 +104,5 @@ EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
 LOGIN_REDIRECT_URL = 'pages:homepage'
 # Адрес страницы логина можно указать в настройках проекта, в константе LOGIN_URL
 LOGIN_URL = 'login'
+# Имя view-функции, обрабатывающей ошибку 403, указывается в settings.py, в константе CSRF_FAILURE_VIEW
+CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
